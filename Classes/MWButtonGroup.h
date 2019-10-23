@@ -26,6 +26,7 @@
  */
 @interface MWButtonGroup : UIView
 
+@property BOOL clock;
 /** a delegate which is notified via the protocols methods, if the user has selected a button */
 @property (weak, nonatomic)  NSObject<MWButtonGroupDelegate>    *delegate;
 
@@ -54,17 +55,17 @@
 @property (strong, nonatomic, readonly) NSMutableIndexSet       *selectedIndexSet;
 
 /** method for replacing the current buttons by giving a list of titles. buttons are text only in this case. Buttons
-    are created with the current colors and font.
-
+ are created with the current colors and font.
+ 
  @param titles  an NSArray of strings
  */
 - (void)createButtonsForTitles:(NSArray *)titles;
 
 /** selects a button at the given. triggers redraw of the buttons
-
-    @param index the index of the button to select
+ 
+ @param index the index of the button to select
  */
-- (void)selectButtonAtIndex:(NSUInteger)index;
+- (void)selectButtonAtIndex:(NSUInteger)index clock:(BOOL)clock;;
 
 /** deselects a button at the given. triggers redraw the buttons
  @param index the index of the button to deselect
